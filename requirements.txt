@@ -1,0 +1,2 @@
+torch -f https://download.pytorch.org/whl/cu118
+torchvision -f https://download.pytorch.org/whl/cu118
