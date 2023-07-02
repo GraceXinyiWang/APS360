@@ -1,4 +1,4 @@
-import torch, torchinfo, fastai, pathlib, numpy as np, stuff, fastai.callback.schedule
+import torch, torchinfo, stuff, fastai.callback.schedule
 from torch import nn
 from torch.utils.data import DataLoader
 from fastai.callback.all import ShowGraphCallback, EarlyStoppingCallback, CSVLogger, SaveModelCallback
