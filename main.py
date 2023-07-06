@@ -1,6 +1,7 @@
 import torch, torchinfo, stuff, fastai.callback.schedule
+from typing import Tuple
 from torch import nn
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from fastai.callback.all import ShowGraphCallback, EarlyStoppingCallback, CSVLogger, SaveModelCallback
 from fastai.optimizer import OptimWrapper
 from fastai.metrics import accuracy
@@ -32,10 +33,10 @@ def main() -> None:
 	# "helpers"
 	callbacks = [ShowGraphCallback(), EarlyStoppingCallback(patience=10), CSVLogger('model/model.csv'), SaveModelCallback()]
 	# load data
-	data_train, data_val = load_data()
+	data_train, data_val, data_test = load_data()
 	# train
 	train(num_epochs, batch_size, data_train, data_val, loss, opt, callbacks)
-def load_data():
+def load_data(file: str = 'data') -> Tuple[Dataset, Dataset, Dataset]:
 	pass
 def train(num_epochs: int, batch_size: int, data_train, data_val, loss, opt, callbacks: list):
 	# defining model
