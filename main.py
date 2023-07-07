@@ -35,13 +35,13 @@ def main() -> None:
 	# load data
 	data_train, data_val, data_test = load_data()
 	print(data_train)  # testing
-	input()  #testing
+	input()  # testing
 	# train
 	train(num_epochs, batch_size, data_train, data_val, loss, opt, callbacks)
 def load_data(file: str = 'data') -> Tuple[Dataset, Dataset, Dataset]:
 	'returns processed data'
-	import process_data
-	return process_data.train_dataset, process_data.valid_dataset, process_data.test_dataset
+	import pickle
+	return pickle.load(open(file + '/train.pkl', 'rb')), pickle.load(open(file + '/val.pkl', 'rb')), pickle.load(open(file + '/test.pkl', 'rb'))
 def train(num_epochs: int, batch_size: int, data_train, data_val, loss, opt, callbacks: list):
 	# defining model
 	model = Model()
