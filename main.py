@@ -34,6 +34,8 @@ def main() -> None:
 	callbacks = [ShowGraphCallback(), EarlyStoppingCallback(patience=10), CSVLogger('model/model.csv'), SaveModelCallback()]
 	# load data
 	data_train, data_val, data_test = load_data()
+	print(data_train)  # testing
+	input()  #testing
 	# train
 	train(num_epochs, batch_size, data_train, data_val, loss, opt, callbacks)
 def load_data(file: str = 'data') -> Tuple[Dataset, Dataset, Dataset]:
