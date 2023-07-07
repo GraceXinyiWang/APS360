@@ -37,7 +37,9 @@ def main() -> None:
 	# train
 	train(num_epochs, batch_size, data_train, data_val, loss, opt, callbacks)
 def load_data(file: str = 'data') -> Tuple[Dataset, Dataset, Dataset]:
-	pass
+	'returns processed data'
+	import process_data
+	return process_data.train_dataset, process_data.valid_dataset, process_data.test_dataset
 def train(num_epochs: int, batch_size: int, data_train, data_val, loss, opt, callbacks: list):
 	# defining model
 	model = Model()
